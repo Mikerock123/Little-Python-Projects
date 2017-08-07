@@ -7,7 +7,7 @@ mortgage = int(raw_input('How much money you would like to borrow? '))
 # ask for the initial down payment
 down_payment = int(raw_input('How much money you can pay as initial down payment? '))
 # need to define the way to calculate unit payment
-# r is annual percentage rate; t1 is the duration for rate; t2 is the total number for repayments
+# r is annual percentage rate; t1 is the duration for rate; t2 is term for full repayment
 def payment(r,t1,t2):
     
     global mortgage, down_payment
@@ -18,16 +18,17 @@ def payment(r,t1,t2):
     
     p = c * ((r * (1+r) ** t2) / ((1 + r) ** t2 - 1))
     
-    return p
+    return int(p)
 
-choice = raw_input('Please choose the term you would like, m: for monthly; w: for weekly; d: for daily ').lower()
+choice = raw_input('Please choose the term you would like, m: for monthly; w: for weekly; d: for daily: ').lower()
 if choice == 'm':
     # ask for annual percentage rate
     APR = float(raw_input('What is your annual percentage rate? Please answer a decimal number: '))
     # ask for how long for full repayment
     payment_term = int(raw_input('How long for your mortgage? Years will be automatically changes to months:  ')) * 12
     # calculation here
-    print payment(APR, 12, payment_term)
+    print 'Your monthly repayment is: ' + str(payment(APR, 12, payment_term))
+    print 'Your real monthly interest compared to your monthly payment is: ' + '%.0f' % ((((mortgage - down_payment) * APR) / 12) / (payment(APR, 12, payment_term)) * 100) + '%'
 
 elif choice == 'w':
     #ask for annual percentage rate
@@ -35,12 +36,14 @@ elif choice == 'w':
     # ask for how long for full repayment
     payment_term = int(raw_input('How long for your mortgage? Years will be automatically changes to weeks:  ')) * 52
     # calculation here
-    print payment(APR, 52, payment_term)
-                                           
+    print 'Your weekly repayment is: ' + str(payment(APR, 52, payment_term))
+    print 'Your real weekly interest compared to your weekly payment is: ' + '%.0f' % ((((mortgage - down_payment) * APR) / 52) / (payment(APR, 52, payment_term)) * 100) + '%'
+                                        
 elif choice == 'd':
     #ask for annual percentage rate
     APR = float(raw_input('What is your annual percentage rate? Please answer a decimal number: '))
     # ask for how long for full repayment
     payment_term = int(raw_input('How long for your mortgage? Years will be automatically changes to weeks:  ')) * 365
     # calculation here
-    print payment(APR, 365, payment_term)
+    print 'Your daily repayment is: ' + str(payment(APR, 365, payment_term))
+    print 'Your real daily interest compared to your daily payment is: ' + '%.0f' % ((((mortgage - down_payment) * APR) / 365) / (payment(APR, 365, payment_term)) * 100) + '%'
