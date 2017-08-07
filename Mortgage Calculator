@@ -27,7 +27,7 @@ if choice == 'm':
     # ask for how long for full repayment
     payment_term = int(raw_input('How long for your mortgage? Years will be automatically changes to months:  ')) * 12
     # calculation here
-    print 'Your monthly repayment is: ' + str(payment(APR, 12, payment_term))
+    print 'Your monthly repayment is: $' + str(payment(APR, 12, payment_term))
     print 'Your real monthly interest compared to your monthly payment is: ' + '%.0f' % ((((mortgage - down_payment) * APR) / 12) / (payment(APR, 12, payment_term)) * 100) + '%'
 
 elif choice == 'w':
@@ -36,7 +36,7 @@ elif choice == 'w':
     # ask for how long for full repayment
     payment_term = int(raw_input('How long for your mortgage? Years will be automatically changes to weeks:  ')) * 52
     # calculation here
-    print 'Your weekly repayment is: ' + str(payment(APR, 52, payment_term))
+    print 'Your weekly repayment is: $' + str(payment(APR, 52, payment_term))
     print 'Your real weekly interest compared to your weekly payment is: ' + '%.0f' % ((((mortgage - down_payment) * APR) / 52) / (payment(APR, 52, payment_term)) * 100) + '%'
                                         
 elif choice == 'd':
@@ -45,5 +45,5 @@ elif choice == 'd':
     # ask for how long for full repayment
     payment_term = int(raw_input('How long for your mortgage? Years will be automatically changes to weeks:  ')) * 365
     # calculation here
-    print 'Your daily repayment is: ' + str(payment(APR, 365, payment_term))
+    print 'Your daily repayment is: $' + str(payment(APR, 365, payment_term))
     print 'Your real daily interest compared to your daily payment is: ' + '%.0f' % ((((mortgage - down_payment) * APR) / 365) / (payment(APR, 365, payment_term)) * 100) + '%'
