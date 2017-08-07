@@ -1,0 +1,46 @@
+'''
+This is a mortgage calculator
+'''
+
+# ask for the amount of mortgage
+mortgage = int(raw_input('How much money you would like to borrow? '))
+# ask for the initial down payment
+down_payment = int(raw_input('How much money you can pay as initial down payment? '))
+# need to define the way to calculate unit payment
+# r is annual percentage rate; t1 is the duration for rate; t2 is the total number for repayments
+def payment(r,t1,t2):
+    
+    global mortgage, down_payment
+    
+    c = mortgage - down_payment
+    
+    r = r/t1
+    
+    p = c * ((r * (1+r) ** t2) / ((1 + r) ** t2 - 1))
+    
+    return p
+
+choice = raw_input('Please choose the term you would like, m: for monthly; w: for weekly; d: for daily ').lower()
+if choice == 'm':
+    # ask for annual percentage rate
+    APR = float(raw_input('What is your annual percentage rate? Please answer a decimal number: '))
+    # ask for how long for full repayment
+    payment_term = int(raw_input('How long for your mortgage? Years will be automatically changes to months:  ')) * 12
+    # calculation here
+    print payment(APR, 12, payment_term)
+
+elif choice == 'w':
+    #ask for annual percentage rate
+    APR = float(raw_input('What is your annual percentage rate? Please answer a decimal number: '))
+    # ask for how long for full repayment
+    payment_term = int(raw_input('How long for your mortgage? Years will be automatically changes to weeks:  ')) * 52
+    # calculation here
+    print payment(APR, 52, payment_term)
+                                           
+elif choice == 'd':
+    #ask for annual percentage rate
+    APR = float(raw_input('What is your annual percentage rate? Please answer a decimal number: '))
+    # ask for how long for full repayment
+    payment_term = int(raw_input('How long for your mortgage? Years will be automatically changes to weeks:  ')) * 365
+    # calculation here
+    print payment(APR, 365, payment_term)
