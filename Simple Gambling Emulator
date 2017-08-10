@@ -1,34 +1,21 @@
 '''
-This is a gambling emulator
+This is a gambling emulator, it has around 50% - 60% winning percentage
 '''
 
 def bigorsmall():
     
-    #set up chips
     chip_pool = 10000
-    #set up bets for each time
     bet = 100
-    #set up every rounds
     rounds = 0
     
-    #x means small or big number; for this function I chose to bet on small number
+    #x means bet on small number
     while chip_pool > 0: 
         x = random.randint(0,1)
-        #if x equals to small number
         if x == 0:
             chip_pool += bet
             rounds += 1
-            #each of winning rounds we add another 100 to the bets
             bet += 100
-
-            #we took profit when we hit $12,000
-            if chip_pool >= 12000:
-                print chip_pool
-                print bet
-                print 'Total rounds used: ' + str(rounds), 'times, and yield percentage: ' + '%.0f' % (((((chip_pool) - 10000.0) / chip_pool) * 100)) + '%'
-                break
             
-            #we stop game when we hit 100 rounds no matter what
             if rounds == 100:
                 print chip_pool
                 print 'Time is up'
@@ -36,18 +23,24 @@ def bigorsmall():
                 print 'Total rounds used: ' + str(rounds), 'times, and yield percentage: ' + '%.0f' % (((((chip_pool) - 10000.0) / chip_pool) * 100)) + '%'
                 break
             
-        #another senario    
-        elif x == 1:
-            bet = 100
+            if chip_pool >= 12000:
+                print chip_pool
+                print bet
+                print 'Total rounds used: ' + str(rounds), 'times, and yield percentage: ' + '%.0f' % (((((chip_pool) - 10000.0) / chip_pool) * 100)) + '%'
+                break
+                
+        else:
             chip_pool -= bet
-            rounds += 1 
+            rounds += 1
+            bet = 100
             
             if rounds == 100:
                 print chip_pool
-                print 'Time is up', bet
-                print 'Total rounds used: ' + str(rounds) , 'times, and yield percentage: ' + '%.0f' % (((((chip_pool) - 10000.0) / chip_pool) * 100)) + '%'
+                print 'Time is up'
+                print bet
+                print 'Total rounds used: ' + str(rounds), 'times, and yield percentage: ' + '%.0f' % (((((chip_pool) - 10000.0) / chip_pool) * 100)) + '%'
                 break
-            #our stop loss strategy    
+            
             elif chip_pool <= 8000:
                 print 'You have remaining:  '+ str(chip_pool) + '@' + str(rounds) + ' rounds'
                 print bet
