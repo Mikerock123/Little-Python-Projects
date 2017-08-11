@@ -1,0 +1,39 @@
+'''
+Scientific Calculator by OOP method
+'''
+
+class ScientificCalculator(object):
+    
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+         
+    def multiplier(self):
+        return self.x * self.y
+    
+    def division(self):
+        return '%.2f' % (float(self.x) / (self.y))
+    
+    def addition(self):
+        return self.x + self.y
+    
+    def minus(self):
+        return self.x - self.y
+    
+    def modulus(self):
+        return self.x % self.y
+    
+    def power(self):
+        return self.x ** self.y
+    
+    def squareroot(self):
+        return '%.2f' % (self.x ** 0.5), '%.2f' % (self.y ** 0.5)
+    
+    def rename(self, new_x,new_y):
+        self.x = new_x
+        self.y = new_y
+    
+    def __name__(self):
+        print 'This is a scientific calculator'
+    
+    
