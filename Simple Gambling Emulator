@@ -16,6 +16,9 @@ def bigorsmall():
             rounds += 1
             bet += 100
             
+            if bet == 400:
+                bet = 100
+            
             if rounds == 100:
                 print chip_pool
                 print 'Time is up'
@@ -41,7 +44,7 @@ def bigorsmall():
                 print 'Total rounds used: ' + str(rounds), 'times, and yield percentage: ' + '%.0f' % (((((chip_pool) - 10000.0) / chip_pool) * 100)) + '%'
                 break
             
-            elif chip_pool <= 8000:
+            elif chip_pool <= 9000:
                 print 'You have remaining:  '+ str(chip_pool) + '@' + str(rounds) + ' rounds'
                 print bet
                 break
