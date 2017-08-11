@@ -35,5 +35,63 @@ class ScientificCalculator(object):
     
     def __name__(self):
         print 'This is a scientific calculator'
+   
+   
+-------------------------------------------------------------        
+        
+        
+def calculator():
+    
+
+    '''
+    This is a scientific calculator by function method
+    '''
+    
+    number_1 = float(raw_input('Please choose your first number: '))
+
+    choice = raw_input('Please select the way you want to perform the operand: 1 for addition; 2 for minus; 3 for multiply; 4 for division; 5 for modulus; 6 for power; 7 for squareroot ')
+
+    if choice == '1':
+    
+        number_2 = float(raw_input('Please choose the number you would like to add with: '))
+    
+        print number_1 + number_2
+    
+    elif choice == '2':
+    
+        number_2 = float(raw_input('Please choose the number you would like to minus with: '))
+    
+        print number_1 - number_2
+    
+    elif choice == '3':
+    
+        number_2 = float(raw_input('Please choose the number you would like to multiply with: '))
+    
+        print number_1 * number_2
+        
+    elif choice == '4':
+    
+        number_2 = float(raw_input('Please choose the number you would like to divide by: '))
+    
+        print number_1 / number_2
+    
+    elif choice == '5':
+    
+        number_2 = float(raw_input('Please choose the number you would like to modulus by: '))
+    
+        print number_1 % number_2
+    
+    elif choice == '6':
+    
+        number_2 = float(raw_input('Please choose the number you would like to the power of: '))
+    
+        print number_1 ** number_2
+    
+    elif choice == '7':
+    
+        number_2 = float(raw_input('Please choose the number you would like to find the square root of: '))
+    
+        print number_2 ** 0.5
+        
     
     
