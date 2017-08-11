@@ -2,6 +2,8 @@
 This is a gambling emulator, it has around 50% - 60% winning percentage
 '''
 
+import random
+
 def bigorsmall():
     
     chip_pool = 10000
