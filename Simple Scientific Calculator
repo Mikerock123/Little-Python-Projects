@@ -34,7 +34,7 @@ class ScientificCalculator(object):
         self.y = new_y
     
     def __name__(self):
-        print 'This is a scientific calculator'
+        print 'This is a scientific calculator by OOP method'
    
    
 -------------------------------------------------------------        
