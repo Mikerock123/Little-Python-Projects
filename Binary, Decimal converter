@@ -1,0 +1,32 @@
+def BintoDec(bin_no):
+    '''
+    Binary convert to decimal
+    '''
+    dec = 0
+    power = 0
+    
+    while bin_no > 0:
+        dec += (bin_no % 10) * (2 ** power)
+        bin_no /= 10
+        power += 1
+    return dec
+    
+    
+    
+    
+    
+    
+def DectoBin(dec_no):
+    '''
+    Decimal to binary converter
+    '''
+    bin_no = 0
+    power = 0
+    
+    while dec_no > 0:
+        bin_no += (dec_no % 2) * (10 ** power)
+        dec_no /= 2
+        power += 1
+    return bin_no
+    
+    
