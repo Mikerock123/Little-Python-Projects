@@ -1,0 +1,307 @@
+'''
+This is a miscellaneous converter for different units, including temperature, currency, volume, mass. Have fun!
+'''
+
+
+def tempconvt():
+    
+    choice_1 = raw_input('Please choose which type of temperature unit you would like to convert to: 1 for Fahrenhite; 2 for Celsius')
+    
+    if choice_1 == '1':
+        
+        unit = raw_input('Please enter the number you would like to convert from Celsius: ')
+        
+        return  'Fahrenhite: ' + '%.2f' % (float(unit) * (9 / 5.0) + 32)
+    
+    else:
+        unit = raw_input('Please enter the number you would like to convert from Fahrenhite: ')
+        
+        return 'Celsius: ' + '%.2f' % ((float(unit) - 32) / (9 / 5.0))
+
+def currencyconvt():
+    
+    '''
+    Please note we're using exchange rate as of 16/8/2017
+    '''
+    
+    choice_1 = raw_input('Please choose what currency you would like to convert from: 1 for dollar; 2 for euro; 3 for pound; 4 for RMB')
+    
+    if choice_1 == '1':
+        
+        unit =  raw_input('Please enter how much you would like to convert from dollar: ')
+        choice_2 = raw_input('Please select which currerncy you want to convert to: e for euro; p for pound; r for RMB: ').lower()
+        
+        if choice_2 == 'e':
+            
+            return 'Euro: ' + '%.2f' % (float(unit) * (1 - 0.17))
+        
+        elif choice_2 == 'p':
+            
+            return 'Pound: ' + '%.2f' % (float(unit) * (1 - 0.28))
+        
+        elif choice_2 == 'r':
+            
+            return 'RMB: ' + '%.2f' % float(unit) * 6.69
+        
+    elif choice_1 == '2':
+        
+        unit =  raw_input('Please enter how much you would like to convert from euro: ')
+        choice_2 = raw_input('Please select which currerncy you want to convert to: d for dollar; p for pound; r for RMB: ').lower()
+        
+        if choice_2 == 'd':
+            
+            return 'Dollar: ' + '%.2f' % (float(unit) * 1.17)
+        
+        elif choice_2 == 'p':
+            
+            return 'Pound: ' + '%.2f' % (float(unit) * 0.91)
+        
+        elif choice_2 == 'r':
+            
+            return 'RMB: ' + '%.2f' % (float(unit) * 7.8)
+        
+    elif choice_1 == '3':
+        
+        unit =  raw_input('Please enter how much you would like to convert from pound: ')
+        choice_2 = raw_input('Please select which currerncy you want to convert to: d for dollar; e for euro; r for RMB: ').lower()
+        
+        if choice_2 == 'd':
+            
+            return 'Dollar: ' + '%.2f' % (float(unit) * 1.28)
+        
+        elif choice_2 == 'e':
+            
+            return 'Euro: ' + '%.2f' % (float(unit) * (1 + 0.09))
+        
+        elif choice_2 == 'r':
+            
+            return 'RMB: ' + '%.2f' % (float(unit) * 8.6)
+        
+    elif choice_1 == '4':
+        
+        unit =  raw_input('Please enter how much you would like to convert from RMB: ')
+        choice_2 = raw_input('Please select which currerncy you want to convert to: d for dollar; e for euro; p for pound: ').lower()
+        
+        if choice_2 == 'd':
+            
+            return 'Dollar: ' + '%.2f' % (float(unit) / 6.9)
+        
+        elif choice_2 == 'e':
+            
+            return 'Euro: ' + '%.2f' % (float(unit) / 7.8)
+        
+        elif choice_2 == 'p':
+            
+            return 'Pound: ' + '%.2f' % (float(unit) / 8.6)
+        
+        
+
+def volume():
+    
+    choice_1 = raw_input('Please choose which type of volume unit you would like to convert from: 1 for litre; 2 for mililitre; 3 for galon; 4 for pint')
+    
+    if choice_1 == '1':
+        
+        unit = raw_input('Please enter the number you would like to convert from litre: ')
+        choice_2 = raw_input('Please choose which type of the volume unit you would like to convert to: m for mililitre; g for galon; p for pint').lower()
+        
+        if choice_2 == 'm':
+            
+            return 'Mililitre: ' + '%.2f' % (float(unit) * 1000)
+        
+        elif choice_2 == 'g':
+            
+            return 'Galon: ' + '%.2f' % (float(unit) * 0.26)
+        
+        elif choice_2 == 'p':
+            
+            print 'UK Pint: ' + '%.2f' % (float(unit) * 1.75)
+            print 'US Pint: ' + '%.2f' % (float(unit) * 2.11)
+    
+    elif choice_1 == '2':
+        
+        unit = raw_input('Please enter the number you would like to convert from mililitre: ')
+        choice_2 = raw_input('Please choose which type of the volume unit you would like to convert to: l for litre; g for galon; p for pint').lower()
+        
+        if choice_2 == 'l':
+            
+            return 'Litre: ' + '%.2f' % (float(unit) * 10**-3)
+        
+        elif choice_2 == 'g':
+            
+            return 'Galon: ' + '%.2f' % (float(unit) * 0.001 * 0.26)
+        
+        elif choice_2 == 'p':
+            
+            print 'UK Pint: ' + '%.2f' % (float(unit) * 0.001 * 1.75)
+            print 'US Pint: ' + '%.2f' % (float(unit) * 0.001 * 2.11) 
+            
+    elif choice_1 == '3':
+        
+        unit = raw_input('Please enter the number you would like to convert from galon: ')
+        choice_2 = raw_input('Please choose which type of the volume unit you would like to convert to: l for litre; m for mililitre; p for pint').lower()
+        
+        if choice_2 == 'l':
+            
+            return 'Litre: ' + '%.2f' % (float(unit) * 3.78)
+        
+        elif choice_2 == 'm':
+            
+            return 'Mililitre: ' + '%.2f' % (float(unit) * 3.78 * 10**-3)
+        
+        elif choice_2 == 'p':
+            
+            print 'UK Pint: ' + '%.2f' % (float(unit) * 8)
+            print 'US Pint: ' + '%.2f' % (float(unit) * 9.6)
+            
+    elif choice_1 == '4':
+        
+        unit = raw_input('Please enter the number you would like to convert from pint: ')
+        choice_2 = raw_input('Please choose which type of the volume unit you would like to convert to: l for litre; m for mililitre; g for galon').lower()
+        
+        if choice_2 == 'l':
+            
+            print 'UK Pint to Litre: ' + '%.2f' % (float(unit) * 0.56)
+            print 'US Pint to Litre: ' + '%.2f' % (float(unit) * 0.47)
+            
+        elif choice_2 == 'm':
+            
+            print 'UK Pint to Mililitre: ' + '%.2f' % (float(unit) * 0.56 * 10**-3)
+            print 'US Pint to Mililitre: ' + '%.2f' % (float(unit) * 0.471 * 10**-3)
+            
+        elif choice_2 == 'g':
+            
+            print 'UK Pint to Galon: ' + '%.2f' % (float(unit) * 0.12)
+            print 'US Pint to Galon: ' + '%.2f' % (float(unit) * 0.125)
+
+def mass():
+    
+    choice_1 = raw_input('Please choose which type of mass unit you would like to convert from: 1 for tonne; 2 for kilogram; 3 for gram; 4 for ounce; 5 for pound')
+    
+    if choice_1 == '1':
+        
+        unit = raw_input('Please enter the number you would like to convert from tonne: ')
+        choice_2 = raw_input('Please choose which type of the mass unit you would like to convert to: k for kilogram; g for gram; o for ounce; p for pound').lower()
+        
+        if choice_2 == 'k':
+            
+            return 'KG: ' + str(float(unit) * 1000)
+        
+        if choice_2 == 'g':
+            
+            return 'Gram: ' + str(float(unit) * 10**6)
+        
+        if choice_2 == 'o':
+            
+            return 'Ounce: ' + str(float(unit) * 1000 * 35.27)
+        
+        if choice_2 == 'p':
+            
+            return 'Pound: ' + str(float(unit) * 1000 * 2.2)
+        
+    elif choice_1 == '2':
+        
+        unit = raw_input('Please enter the number you would like to convert from kilogram: ')
+        choice_2 = raw_input('Please choose which type of the mass unit you would like to convert to: t for tonne; g for gram; o for ounce; p for pound').lower()
+        
+        if choice_2 == 't':
+            
+            return 'Tonne: ' + str(float(unit) * 0.001)
+        
+        if choice_2 == 'g':
+            
+            return 'Gram: ' + str(float(unit) * 1000)
+        
+        if choice_2 == 'o':
+            
+            return 'Ounce: ' + str(float(unit) * 35.27)
+        
+        if choice_2 == 'p':
+            
+            return 'Pound: '+ str(float(unit) * 2.2)
+        
+    elif choice_1 == '3':
+        
+        unit = raw_input('Please enter the number you would like to convert from gram: ')
+        choice_2 = raw_input('Please choose which type of the mass unit you would like to convert to: t for tonne; k for kilogram; o for ounce; p for pound').lower()
+        
+        if choice_2 == 't':
+            
+            return 'Tonne: ' + str(float(unit) * 10**-6)
+        
+        if choice_2 == 'k':
+            
+            return 'KG: ' + str(float(unit) * 10**-3)
+        
+        if choice_2 == 'o':
+            
+            return 'Ounce: ' + str((float(unit) * 35.27)* 10**-3)
+        
+        if choice_2 == 'p':
+            
+            return 'Pound: ' + str((float(unit) * 2.2) * 10**-3)
+            
+    elif choice_1 == '4':
+        
+        unit = raw_input('Please enter the number you would like to convert from ounce: ')
+        choice_2 = raw_input('Please choose which type of the mass unit you would like to convert to: t for tonne; k for kilogram; g for gram; p for pound').lower()
+        
+        if choice_2 == 't':
+            
+            return 'Tonne: ' + str(float(unit) * 0.02 * 10**-3)
+        
+        if choice_2 == 'k':
+            
+            return 'KG: ' + str(float(unit) * 0.02)
+        
+        if choice_2 == 'g':
+            
+            return 'Gram: ' + str(float(unit) * 28.34)
+        
+        if choice_2 == 'p':
+            
+            return 'Pound: ' + str(float(unit) * 0.06)
+        
+    elif choice_1 == '5':
+        
+        unit = raw_input('Please enter the number you would like to convert from pound: ')
+        choice_2 = raw_input('Please choose which type of the mass unit you would like to convert to: t for tonne; k for kilogram; g for gram; o for ounce').lower()
+        
+        if choice_2 == 't':
+            
+            return 'Tonne: ' + str(float(unit) * 0.45 * 10**-3)
+        
+        if choice_2 == 'k':
+            
+            return 'KG: ' + str(float(unit) * 0.45)
+        
+        if choice_2 == 'g':
+            
+            return 'Gram: ' + str(float(unit) * 0.45 * 1000)
+        
+        if choice_2 == 'o':
+            
+            return 'Ounce: ' + str(float(unit) * 16)
+
+        
+def general():
+    
+    answer = raw_input('What kind of conversion you would like? t for temperature; c for currency; v for volume; m for mass: ').lower()
+
+    if answer == 't':
+        
+        return tempconvt()
+    
+    elif answer == 'c':
+    
+        return currencyconvt()
+    
+    elif answer == 'v':
+        
+        return volume()
+
+    elif answer == 'm':
+    
+        return mass()
+    
+general()
