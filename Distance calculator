@@ -1,0 +1,26 @@
+def distance():
+    
+    '''
+    This is a simple distance calculator between X and Y axis, let's assume X is horizontal and Y is vertical
+    
+    It looks like this:
+    
+          |
+          |
+    ------|------ x
+          |
+          |
+          Y
+    '''
+    point_A_X1 = raw_input('Please enter X1 coordinate for point A: ')
+    point_A_Y1 = raw_input('Please enter Y1 coordinate for point A: ')
+    
+    Coor_A = (int(point_A_X1), int(point_A_Y1))
+    
+    point_B_X2 = raw_input('Please enter X2 coordinate for point B: ')
+    point_B_Y2 = raw_input('Please enter Y2 coordinate for point B: ')
+    
+    Coor_B = (int(point_B_X2), int(point_B_Y2))
+    
+    return '%.2f' % (((Coor_A[0] - Coor_B[0]) ** 2) + ((Coor_A[1] - Coor_B[1]) ** 2)) ** 0.5
+     
