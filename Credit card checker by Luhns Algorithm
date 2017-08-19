@@ -1,0 +1,26 @@
+def credit_card_checker():
+    
+    card_num = raw_input('Please enter your credit card number: ')
+    
+    while len(card_num) != 16:
+        card_num = raw_input('Wrong number. Please enter your 16 digits credit card number: ')
+    
+    total_even_num = 0
+    total_odd_num = 0
+    
+    for i in card_num[::2]:
+        even_num = int(i) * 2
+        if even_num >= 10:
+            total_even_num += (even_num / 10 + even_num % 10)
+            
+        else:
+            total_even_num += int(i) * 2
+            
+    for x in card_num[1::2]:
+        total_odd_num += int(x)
+        
+    if (total_even_num + total_odd_num) % 10 == 0:
+        print 'This is a valid card :) '
+        
+    else:
+        print 'Invalid card!!'
