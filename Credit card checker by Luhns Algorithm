@@ -22,5 +22,24 @@ def credit_card_checker():
     if (total_even_num + total_odd_num) % 10 == 0:
         print 'This is a valid card :) '
         
+        if card_num[:2] == '34' or card_num[:2] == '37':
+            
+            print 'This is American Express card'
+        
+        elif card_num[:2] == '62' or card_num[:2] == '88':
+            print 'This is China Union Pay card'
+        
+        elif card_num[:4] == '5018' or card_num[:4] == '5020' or card_num[:4] == '5038' or \
+        card_num[:4] == '5612' or card_num[:4] == '5893' or card_num[:4] == '6304' or card_num[:4] == '6759' or \
+        card_num[:4] == '6761' or card_num[:4] == '6762' or card_num[:4] == '6763' or card_num[:4] == '0604' or card_num[:4] == '6390':
+            print 'This is Maestro card'
+        
+        elif card_num[0] == '4':
+            print 'This is Visa card'
+            
+        elif card_num[::4] == '4026' or card_num[::4] == '4405'or card_num[::4] == '4508' or card_num[::4] == '4844' \
+        or card_num[::4] == '4913' or card_num[::4] == '4917' or  card_num[::6] == '417500':
+            print 'This is a Visa Electron card'
+ 
     else:
         print 'Invalid card!!'
