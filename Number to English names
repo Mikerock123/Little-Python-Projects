@@ -1,0 +1,59 @@
+def numname(n):
+    '''
+    Number Names - Show how to spell out a number in English. 
+    I just tried on 4 digits
+    '''
+    
+    numarray = [0,0,0,0]
+    numplace_0 = {'0':'zero','1':'one', '2':'two', '3':'three', '4': 'four', '5':'five', '6':'six', '7':'seven', '8':'eight', '9':'nine'}
+    numplace_1 = {'10':'ten','11':'eleven','12':'twelve','13':'thirteen', '14':'fourteen', '15':'fifteen', '16':'sixteen', '17':'seventeen', '18':'eighteen', '19': 'nineteen'}
+    numplace_2 = {'2':'twtenty', '3':'thirty', '4':'fourty', '5':'fifty', '6':'sixty', '7': 'seventy', '8':'eighty', '9':'ninety'}
+  
+    numarray[0] = str(n / 1000 % 10)
+    numarray[1] = str(n / 100 % 10)
+    numarray[2] = str(n / 10 % 10)
+    numarray[3] = str(n / 1 % 10)
+
+    n = []
+    for i in numarray:
+        n.append(numplace_0[i])
+        
+    if numarray[1] == '0' and numarray[2] == '1':
+        n[2] = 'and ' + numplace_1[(numarray[2]+numarray[3])]
+        return n[0] + ' thousand ' + n[2]
+    
+    elif numarray[1] == '0' and numarray[2] == '0' and numarray[3] != '0':
+        return n[0] + ' thousand and ' + n[3]
+    
+    elif numarray[1] == '0' and numarray[2] != '0' and numarray[2] != '1':
+        n[2] = numplace_2[numarray[2]]
+        return n[0] + ' thousand and ' + n[2] + ' ' + n[3]
+    
+    elif numarray[2] == '1' and numarray[1] != '0':
+        n[2] = 'and ' + numplace_1[(numarray[2]+numarray[3])]
+        n[3] = ''
+        return n[0] + ' thousand ' + n[1] + ' hundred ' + n[2] + '' + n[3]
+    
+    elif numarray[2] == '0' and numarray[3] != '0' and numarray[1] != '0':
+        n[2] = 'and '
+        return n[0] + ' thousand ' + n[1] + ' hundred ' + n[2] + '' + n[3]
+    
+    elif numarray[0]!= '0' and numarray[1] != '0' and numarray[2] == '0' and numarray[3] == '0':
+        n[1] = 'and ' + numplace_0[numarray[1]]
+        n[2] = n[3] = ''
+        return n[0] + ' thousand ' + n[1] + ' hundred ' + n[2] + '' + n[3]
+    
+    elif numarray[0] != '0' and numarray[1] == '0' and numarray[2] == '0' and numarray[3] == '0':
+        n[1] = n[2] = n[3] = ''
+        return n[0] + ' thousand ' + n[1] + n[2] + n[3]
+    
+    elif numarray[2] != '1' and numarray[2] != '0' and numarray[3] == '0' and numarray[1] != '0':
+        n[2] = 'and ' + numplace_2[numarray[2]]
+        n[3] = ' '
+        return n[0] + ' thousand ' + n[1] + ' hundred ' + n[2] + '' + n[3]
+    
+    elif numarray[2] != '1' and numarray[2] != '0' and numarray[3] != '0' and numarray[1] != '0':
+        n[2] = 'and ' + numplace_2[numarray[2]] + ' '
+        return n[0] + ' thousand ' + n[1] + ' hundred ' + n[2] + '' + n[3]
+     
+    
