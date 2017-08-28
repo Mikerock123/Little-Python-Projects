@@ -13,7 +13,49 @@ def bbsort(lst):
 -----------------------------------------------------------------------------
 
 
+def merge(left,right):
+   '''
+   this is the function returns sorted number for 
+   divided list
+   '''
+    
+    result = [ ]
+    i,j = 0,0
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i+=1
+        else:
+            result.append(right[j])
+            j+=1
+            
+    for s in left:
+        if s not in result:
+            result.append(s)
+    for s in right:
+        if s not in result:
+            result.append(s)
+    return result
 
+
+def mergesort(lst):
+
+   '''
+   this is the function returns list into half until it becomes single item in the list
+   '''
+    
+    if len(lst) < 2:
+        return lst
+    else:
+        mid = int((len(lst)) / 2)
+        left = mergesort(lst[:mid])
+        right = mergesort(lst[mid:])
+        return merge(left,right)
+  
+# l can be a list contains any number array, here just for an example 
+
+l = [567,453,23,45,88,123123,9,2,65,-5,-2,-99]
+print mergesort(l)
 
 
 
