@@ -1,0 +1,21 @@
+def fromlink(lst):
+    
+    '''
+    Takes a list of links in the form of tuples, or lists, 
+    with two elements describing the connected nodes and returns a graph in the form of a dictionary.
+    
+    Exampple input: [(1,2),(1,4),(2,3),(3,4)] or [[1,2],[1,4],(,3),(3,4)]
+    
+    Example output (fm input): {1:[2,4],2:[1,3],3:[2,4],4:[1,3]}
+    '''
+    
+    graph = { }
+    
+    for i in lst:
+        for o in i:
+            if o not in graph:
+                graph[o] = [ ]
+        graph[i[0]].append(i[1])
+        graph[i[1]].append(i[0])
+    
+    return graph
